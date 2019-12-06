@@ -18,6 +18,7 @@ function doAction(act){
     while(textContains(act).exists()){        
         toast("存在" + act);
         textContains(act).findOne().click();
+        sleep(1600);
         while(textContains("拒绝").exists()){
             textContains("拒绝").findOne().click();
             toast("拒绝");
@@ -32,9 +33,11 @@ function doAction(act){
         toast(tmpTime);
         sleep(tmpTime);
         while(!textContains("天天做任务赚翻倍豆").exists()){
+            toast("不在初始页面");
             back();
             sleep(1600);
         }
+        sleep(1600);
         while(textContains("再玩玩").exists()){
             textContains("再玩玩").findOne().click();
             toast("再玩玩");
