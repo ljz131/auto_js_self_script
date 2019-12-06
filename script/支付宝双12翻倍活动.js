@@ -31,7 +31,10 @@ function doAction(act){
         var tmpTime = 2000 + Math.random()*5000;
         toast(tmpTime);
         sleep(tmpTime);
-        back();
+        while(!textContains("天天做任务赚翻倍豆").exists()){
+            back();
+            sleep(1600);
+        }
         while(textContains("再玩玩").exists()){
             textContains("再玩玩").findOne().click();
             toast("再玩玩");
@@ -41,7 +44,6 @@ function doAction(act){
             toast("系统繁忙");
             sleep(1600);
         }
-        sleep(1600);
     }
     toast("完成[" + act + "]检测");
     sleep(2000);
