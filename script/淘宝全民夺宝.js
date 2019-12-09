@@ -1,11 +1,11 @@
-//2019/12/3更新，增加“去搜索”子功能
+// 2019-12-9 v1.0.5
 auto.waitFor();
 
 var height = device.height;
 
 var width = device.width;
 
-toast("\n设备宽" + width + "\n" + "设备高" + height + "\n" + "手机型号" + device.model + "\n安卓版本" + device.release)
+toast("设备宽" + width + "；设备高" + height + "；手机型号" + device.model + "；安卓版本" + device.release)
 
 setScreenMetrics(width, height);
 
@@ -46,9 +46,7 @@ function autoplay(){
     }
     sleep(2000);
     toast("完成[签到]检测");
-
-    swipe22s("去浏览");
-    swipe22s("去搜索");
-    
+    var stringArray = ["去浏览","去搜索","去逛逛"];
+    stringArray.forEach(swipe22s)    
     toast("结束");
 }

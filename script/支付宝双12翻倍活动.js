@@ -1,5 +1,5 @@
 //提交前使用 git count确认版本
-//当前为1.0.4
+//当前为1.0.5
 auto.waitFor();
 
 var height = device.height;
@@ -20,35 +20,40 @@ function doAction(act){
         toast("存在" + act);
         textContains(act).findOne().click();
         sleep(1600);
-        while(textContains("拒绝").exists()){
-            textContains("拒绝").findOne().click();
-            toast("拒绝");
-            sleep(1600);
-        }
-        while(textContains("不允许").exists()){
-            textContains("不允许").findOne().click();
-            toast("不允许");
-            sleep(1600);
-        }
         var tmpTime = 2000 + Math.random()*5000;
         toast(tmpTime);
         sleep(tmpTime);
         while(!textContains("天天做任务赚翻倍豆").exists()){
             toast("不在初始页面");
+            isInErrorPage();
             back();
             sleep(1600);
         }
         sleep(1600);
-        while(textContains("再玩玩").exists()){
-            textContains("再玩玩").findOne().click();
-            toast("再玩玩");
-            sleep(1600);
-        }
-        while(textContains("系统繁忙").exists()){
-            toast("系统繁忙");
-            sleep(1600);
-        }
     }
     toast("完成[" + act + "]检测");
     sleep(2000);
+}
+
+function isInErrorPage(){
+    if(textContains("拒绝").exists()){
+        textContains("拒绝").findOne().click();
+        toast("不允许");
+        sleep(1600);
+    }
+    if(textContains("不允许").exists()){
+        textContains("不允许").findOne().click();
+        toast("不允许");
+        sleep(1600);
+    }
+    if(textContains("再玩玩").exists()){
+        textContains("再玩玩").findOne().click();
+        toast("再玩玩");
+        sleep(1600);
+    }
+    if(textContains("系统繁忙").exists()){
+        textContains("系统繁忙").findOne().click();
+        toast("系统繁忙");
+        sleep(1600);
+    }
 }
