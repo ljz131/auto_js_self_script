@@ -1,12 +1,18 @@
-//提交前使用 git count确认版本
-//当前为1.0.5
+//2019-12-09
+//当前版本：1.0.5
+//可用于[支付宝到店付款翻倍活动]
+//需要手动打开领取页面，在某些界面有概率无法跳转回最初界面
 auto.waitFor();
 
 var height = device.height;
 var width = device.width;
-toast("\n设备宽" + width + "\n" + "设备高" + height + "\n" + "手机型号" + device.model + "\n安卓版本" + device.release)
+var model = device.model;
+var sdkVersion = device.release;
+toast("设备宽" + width + "；设备高" + height + "；手机型号" + model + "；安卓版本" + sdkVersion);
 
 setScreenMetrics(width, height);
+toast("设备高"+height);
+
 autoplay();
 
 function autoplay(){
@@ -54,6 +60,11 @@ function isInErrorPage(){
     if(textContains("系统繁忙").exists()){
         textContains("系统繁忙").findOne().click();
         toast("系统繁忙");
+        sleep(1600);
+    }
+    if(textContains("确定").exists()){
+        textContains("确定").findOne().click();
+        toast("确定");
         sleep(1600);
     }
 }
