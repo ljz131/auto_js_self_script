@@ -1,4 +1,5 @@
-
+//提交前使用 git count确认版本
+//当前为1.0.4
 auto.waitFor();
 
 var height = device.height;
